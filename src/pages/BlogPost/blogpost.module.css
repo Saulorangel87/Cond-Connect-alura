@@ -1,0 +1,159 @@
+.card {
+    width: 100%;
+    border-radius: 8px;
+    background: var(--dark-gray);
+}
+
+.header {
+    border-radius: 8px 8px 0px 0px;
+    background: var(--medium-gray);
+    padding: 24px;
+}
+
+.header figure {
+    margin: 0;
+    position: relative;
+}
+
+.figure {
+    height: 368px;
+}
+
+.figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.24);
+}
+
+.body {
+    color: var(--light-gray);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.body h2 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    margin: 0;
+}
+
+.body p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.body a {
+    text-decoration: none;
+    color: var(--light-gray);
+    margin: 16px 0;
+}
+
+.body a:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--medium-gray);
+    font-size: 15px;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.code {
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--dark-gray);
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.24);
+    max-height: 250px;
+    overflow-y: scroll;
+    color: var(--light-gray);
+    line-height: 150%;
+    font-size: 15px;
+}
+
+/* Estilos para o markdown renderizado */
+.code :global(pre) {
+    background: var(--graphite);
+    border-radius: 4px;
+    padding: 16px;
+    margin: 0;
+    overflow-x: auto;
+    border: 1px solid var(--gray);
+}
+
+.code :global(code) {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--offwhite);
+}
+
+.code :global(p) {
+    margin: 0;
+    color: var(--light-gray);
+}
+
+.code :global(h1),
+.code :global(h2),
+.code :global(h3),
+.code :global(h4),
+.code :global(h5),
+.code :global(h6) {
+    color: var(--light-gray);
+    margin: 16px 0 8px 0;
+}
+
+.code :global(ul),
+.code :global(ol) {
+    margin: 8px 0;
+    padding-left: 20px;
+    color: var(--light-gray);
+}
+
+.code :global(li) {
+    margin: 4px 0;
+    color: var(--light-gray);
+}
+
+.code :global(blockquote) {
+    border-left: 4px solid var(--medium-gray);
+    padding-left: 16px;
+    margin: 16px 0;
+    color: var(--medium-gray);
+    font-style: italic;
+}

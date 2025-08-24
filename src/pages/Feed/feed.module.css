@@ -1,0 +1,12 @@
+.grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 999px) {
+    .grid {
+        justify-content: center;
+    }
+}

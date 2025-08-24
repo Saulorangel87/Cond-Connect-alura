@@ -1,0 +1,40 @@
+.asidelink {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--medium-gray);
+    transition: color 0.2s;
+}
+
+.asidelink:visited {
+    color: var(--medium-gray);
+}
+
+.asidelink svg path {
+    transition: fill 0.2s;
+}
+
+.asidelink:hover {
+    color: var(--white);
+}
+
+.asidelink:hover svg path {
+    fill: var(--white);
+}
+
+/* Estilos para mobile - rodapé navigation */
+@media (max-width: 999px) {
+    .asidelink {
+        gap: 4px;
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    .asidelink svg {
+        width: 20px;
+        height: 20px;
+    }
+}

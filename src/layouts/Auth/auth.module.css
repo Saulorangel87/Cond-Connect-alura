@@ -1,0 +1,14 @@
+.container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 10% 0;
+}
+
+.card {
+    width: 996px;
+    margin: 0 auto;
+    max-width: 90%;
+    background-color: var(--dark-gray);
+    border-radius: 32px;
+    padding: 56px 78px;
+}

@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--offwhite);
+}
+
+.text {
+    color: var(--offwhite);
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
