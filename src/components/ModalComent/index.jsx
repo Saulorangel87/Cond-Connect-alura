@@ -36,7 +36,7 @@ export const ModalComment = ({ isEditing }) => {
   return (
     <>
       <Modal ref={modalRef}>
-        <form onSubmit={onSubmit}>
+        <form className={styles.container} onSubmit={onSubmit}>
           <Subheading>
             {isEditing
               ? "Editar comentário:"

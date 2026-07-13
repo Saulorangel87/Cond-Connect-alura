@@ -2,8 +2,10 @@
   border: none;
   border-radius: 12px;
   padding: 0;
-  max-width: 560px;
-  width: min(90vw, 560px);
+  max-width: 720px;
+  width: min(92vw, 720px);
+  max-height: 90vh;
+  overflow: hidden;
 }
 
 .dialog::backdrop {

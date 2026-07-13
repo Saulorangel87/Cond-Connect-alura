@@ -1,4 +1,42 @@
-.footer {
-    display: flex;
-    justify-content: flex-end;
+.container {
+  background: #222;
+  padding: 20px 24px;
+  width: 100%;
+  max-width: 720px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
+.container textarea {
+  background: #efefef;
+  border: none;
+  border-radius: 8px;
+  min-height: 220px;
+  max-height: 60vh;
+  padding: 16px;
+  font-size: 16px;
+  color: #222;
+  resize: vertical;
+  overflow: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer button {
+  background: #81fe88; /* destaque verde */
+  color: #00210b;
+  border-radius: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  border: none;
+}
+
+.container .subText {
+  color: rgba(255, 255, 255, 0.8);
+}
+color: rgba(255, 255, 255, 0.7);
