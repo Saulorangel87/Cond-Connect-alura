@@ -20,7 +20,7 @@ export const AppRouter = () => {
         <Route path="/" element={<AppLayout />}>
           <Route path="" element={<Feed />} />
 
-          <Route path="blog-post/:slug" element={<BlogPost />} />
+          <Route path="blog-posts/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

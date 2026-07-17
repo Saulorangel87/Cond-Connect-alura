@@ -7,9 +7,10 @@ export const Feed = () => {
 
     useEffect(() => {
         fetch('http://localhost:3000/blog-posts')
-            .then(res => res.json())
-            .then(data => setPosts(data))
-            .catch(err => console.log(err))
+        .then(response => {
+            return response.json()
+        })
+        .then(data => setPosts(data))
     }, [])
 
     return (
