@@ -3,8 +3,9 @@ import { Avatar } from "../Avatar";
 import { ModalComment } from "../ModalComent";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
+import { IconButton } from "../IconButton";
 
-export const Comment = ({ comment }) => {
+export const Comment = ({ comment, onDelete }) => {
   const [text, setText] = useState(comment.text);
   const { user } = useAuth();
 
@@ -27,6 +28,7 @@ export const Comment = ({ comment }) => {
             onSuccess={handleEdit}
           />
         )}
+        {isOwner && <IconButton onClick={() => onDelete(comment.id)}>excluir</IconButton>}
       </div>
     </div>
   );

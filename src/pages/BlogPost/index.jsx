@@ -8,6 +8,7 @@ import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { ModalComment } from "../../components/ModalComent";
 import { http } from "../../Api";
+import { useAuth } from "../../hooks/useAuth";
 
 export const BlogPost = () => {
   const { slug } = useParams();
@@ -17,6 +18,29 @@ export const BlogPost = () => {
 
   const handleCommentButton = (newComment) => {
     setComments((previousComments) => [newComment, ...previousComments]);
+  };
+
+  const { isAuthenticated } = useAuth();
+
+  const handleCommentDelete = (commentId) => {
+    const isConfirmed = confirm("Tem certeza que deseja remover o comentário?");
+
+    if (isConfirmed) {
+      http.delete(`comments/${commentId}`).then(() => {
+        setComments((oldState) =>
+          oldState.filter((comment) => comment.id !== commentId),
+        );
+      });
+    }
+  };
+
+  const handleLikeButton = () => {
+    http.post(`/blog-posts/${post.id}/like`).then(() => {
+      setPost((previousPost) => ({
+        ...previousPost,
+        likes: previousPost.likes + 1,
+      }));
+    });
   };
 
   useEffect(() => {
@@ -55,7 +79,11 @@ export const BlogPost = () => {
         <footer className={styles.footer}>
           <div className={styles.actions}>
             <div className={styles.action}>
-              <ThumbsUpButton loading={false} />
+              <ThumbsUpButton
+                loading={false}
+                onClick={handleLikeButton}
+                disabled={!isAuthenticated}
+              />
               <p>{post.likes}</p>
             </div>
             <div className={styles.action}>
@@ -70,7 +98,7 @@ export const BlogPost = () => {
       <div className={styles.code}>
         <ReactMarkdown>{post.markdown}</ReactMarkdown>
       </div>
-      <CommentList comments={comments} />
+      <CommentList comments={comments} onDelete={handleCommentDelete} />
     </main>
   );
 };
