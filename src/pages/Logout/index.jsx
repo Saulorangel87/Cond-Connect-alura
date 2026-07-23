@@ -9,7 +9,7 @@ export const Logout = () => {
   useEffect(() => {
     logout();
     navigate("/auth/login");
-  }, [logout, navigate]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- logout and navigate are stable via useCallback/React Router
 
   return null;
 };

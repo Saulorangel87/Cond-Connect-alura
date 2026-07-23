@@ -18,11 +18,13 @@ export const CardPost = ({ post }) => {
     setComments((previousComments) => [newComment, ...previousComments]);
   };
 
-  const handleLikeButton = () => {
-    http.post(`/blog-posts/${post.id}/like`).then(() => {
+  const handleLikeButton = async () => {
+    try {
+      await http.post(`/blog-posts/${post.id}/like`);
       setLikes((oldState) => oldState + 1);
-      console.log("incrementar like");
-    });
+    } catch (error) {
+      console.error("Erro ao curtir post:", error);
+    }
   };
 
   return (

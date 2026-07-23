@@ -9,7 +9,7 @@ export const Comment = ({ comment, onDelete }) => {
   const [text, setText] = useState(comment.text);
   const { user } = useAuth();
 
-  const isOwner = user?.id == comment.author.id;
+  const isOwner = user?.id === comment.author.id;
 
   const handleEdit = (newComment) => {
     setText(newComment.text);

@@ -14,7 +14,7 @@ export const Providers = () => {
             </li>
             <li>
                 <IconButton>
-                    <img src={github} alt="Google" />
+                    <img src={github} alt="GitHub" />
                 </IconButton>
             </li>
         </ul>

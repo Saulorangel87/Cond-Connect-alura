@@ -7,6 +7,7 @@ import { BlogPost } from "../pages/BlogPost/index.jsx";
 import { AuthLayout } from "../layouts/Auth/index.jsx";
 import { AppLayout } from "../layouts/App/index.jsx";
 import { NotFound } from "../pages/NotFound/index.jsx";
+import { ProtectedRoute } from "../components/ProtectedRoute/index.jsx";
 
 export const AppRouter = () => {
   return (
@@ -18,9 +19,8 @@ export const AppRouter = () => {
           <Route path="logout" element={<Logout />} />
         </Route>
         <Route path="/" element={<AppLayout />}>
-          <Route path="" element={<Feed />} />
-
-          <Route path="blog-posts/:slug" element={<BlogPost />} />
+          <Route index element={<ProtectedRoute><Feed /></ProtectedRoute>} />
+          <Route path="blog-posts/:slug" element={<ProtectedRoute><BlogPost /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -22,25 +22,31 @@ export const BlogPost = () => {
 
   const { isAuthenticated } = useAuth();
 
-  const handleCommentDelete = (commentId) => {
+  const handleCommentDelete = async (commentId) => {
     const isConfirmed = confirm("Tem certeza que deseja remover o comentário?");
 
     if (isConfirmed) {
-      http.delete(`comments/${commentId}`).then(() => {
+      try {
+        await http.delete(`comments/${commentId}`);
         setComments((oldState) =>
           oldState.filter((comment) => comment.id !== commentId),
         );
-      });
+      } catch (error) {
+        console.error("Erro ao remover comentário:", error);
+      }
     }
   };
 
-  const handleLikeButton = () => {
-    http.post(`/blog-posts/${post.id}/like`).then(() => {
+  const handleLikeButton = async () => {
+    try {
+      await http.post(`/blog-posts/${post.id}/like`);
       setPost((previousPost) => ({
         ...previousPost,
         likes: previousPost.likes + 1,
       }));
-    });
+    } catch (error) {
+      console.error("Erro ao curtir post:", error);
+    }
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ export const BlogPost = () => {
         setComments(response.data.comments);
       })
       .catch((erro) => {
-        if (erro.status == 404) {
+        if (erro.response?.status === 404) {
           navigate("/not-found");
         }
       });

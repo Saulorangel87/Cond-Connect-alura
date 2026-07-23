@@ -19,7 +19,7 @@ export const ModalComment = ({ isEditing, onSuccess, postId, comment }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    const form = event.currentTarget; // 👈 Guarda a referência do form
+    const form = event.currentTarget;
     const formData = new FormData(form);
     const text = formData.get("text");
     if (!text || !String(text).trim()) return;
@@ -27,18 +27,16 @@ export const ModalComment = ({ isEditing, onSuccess, postId, comment }) => {
     try {
       setLoading(true);
 
-      const request = isEditing
-        ? http.patch(`/comments/${comment?.id}`)
-        : http.post(`/comments/post/${postId}`);
+      const response = isEditing
+        ? await http.patch(`/comments/${comment?.id}`, { text })
+        : await http.post(`/comments/post/${postId}`, { text });
 
-      request.then((response) => {
-        form.reset(); // 👈 Limpa o textarea para o próximo comentário
-        modalRef.current.closeModal();
-        onSuccess?.(response.data);
-        setLoading(false);
-      });
+      form.reset();
+      modalRef.current.closeModal();
+      onSuccess?.(response.data);
     } catch (error) {
       console.error("Erro ao criar/atualizar comentário:", error);
+    } finally {
       setLoading(false);
     }
   };
